@@ -1,0 +1,9 @@
+{:site-title "Ryan Virtual Machine"
+ :author "Ryan V McGowan"
+ :in-dir "resources/content"
+ :out-dir "resources/public"
+ :precompiles ["javascripts/app.js.stefon"
+               "stylesheets/app.css.stefon"]
+ :contacts {:twitter "Ryan_VM"
+            :github "RyanMcG"
+            :email "ryan@ryanmcg.com"}}
