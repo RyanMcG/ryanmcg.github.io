@@ -4,6 +4,10 @@
  :out-dir "resources/public"
  :precompiles ["javascripts/app.js.stefon"
                "stylesheets/app.css.stefon"]
+ :deploy {:workflow :git-branch
+          :branch "master"
+          :commit true
+          :push true}
  :contacts {:twitter "Ryan_VM"
             :github "RyanMcG"
             :email "ryan@ryanmcg.com"}}
