@@ -1,4 +1,4 @@
-{:layout :post
+{:layout :ryanmcg
  :title "Another forgotten binding.pry"
  :date "2013-08-12"
  :category :code
@@ -55,3 +55,6 @@ otherwise). That means that you can make this a git pre-commit hook! Here's how:
     mv pre-commit path/to/your/rails/root/.git/hooks/
 
 That's it!
+
+[pry]: http://pryrepl.org/
+[debugger]: http://devdocs.io/javascript/statements/debugger
