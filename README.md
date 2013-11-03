@@ -26,4 +26,4 @@ lein run -1
 This work is licensed under a Creative Commons Attribution-ShareAlike 3.0
 Unported License except where specified otherwise.
 
-[www]: www.ryanmcg.com
+[www]: http://www.ryanmcg.com
