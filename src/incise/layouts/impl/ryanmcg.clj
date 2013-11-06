@@ -23,7 +23,7 @@
 
 (defpartial footer
   "A footer parital with a Creative Commons license attached."
-  [{:keys [contacts author]} _]
+  [{:keys [contacts author]}]
   [:hr]
   [:footer
    [:div.row
@@ -44,7 +44,7 @@
     "This website was "
     (link-to "https://github.com/RyanMcG/incise" "incise") "d."]])
 
-(deflayout ryanmcg
+(deflayout ryanmcg []
   (repartial incise.layouts.impl.page/javascripts
              #(cons "http://code.jquery.com/jquery-2.0.3.min.js" %))
   (repartial incise.layouts.impl.page/footer footer)
