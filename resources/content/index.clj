@@ -14,4 +14,9 @@
 
 (defn parse-is-index? [parse] (= (:path parse) "index.html"))
 
-(html [:ul.posts (map post (remove parse-is-index? parses))])
+(let [[posts pages] (split-with :date (remove parse-is-index? parses))]
+  (html
+    [:h1 "Posts"]
+    [:ul.posts (map post posts)]
+    [:h1 "Pages"]
+    [:ul.pages (map post pages)]))
