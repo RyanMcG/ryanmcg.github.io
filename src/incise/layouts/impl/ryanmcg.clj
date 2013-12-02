@@ -45,9 +45,9 @@
     (link-to "https://github.com/RyanMcG/incise" "incise") "d."]])
 
 (deflayout ryanmcg []
-  (repartial incise.layouts.impl.page/javascripts
+  (repartial incise.layouts.impl.base/javascripts
              #(cons "http://code.jquery.com/jquery-2.0.3.min.js" %))
-  (repartial incise.layouts.impl.page/footer footer)
+  (repartial incise.layouts.impl.base/footer footer)
   (use-layout page))
 
 (register [:ryanmcg] ryanmcg)
