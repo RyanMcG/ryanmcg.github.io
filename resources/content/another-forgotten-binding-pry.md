@@ -2,59 +2,70 @@
  :title "Another forgotten binding.pry"
  :date "2013-08-12"
  :category :code
- :tags [:code :rails :git :debugger :pry :diff]}
+ :tags [:hooks :code :rails :git :debugger :pry :diff]}
 
-It's a common occurrence, or a least it was. Tools like [pry][] and [debugger][]
-are almost indispensable once you have gotten used to them, however sometimes
-they get forgotten.
+# Another forgotten binding.pry
 
-If you are a very careful person you might proof read your diff before
-committing your code. Good for you! Cookies await you in your kitchen although
-you might have to make them first. Anyways, even if you are very careful chances
-are you'll still miss stuff. Sometimes that stuff is a binding.pry in a Rails
-controller. You'll probably catch this before you deploy.
+Tools like [pry][] and [debugger][] are almost indispensable once you have
+gotten used to them, however I have yet to meet a user who has not forgotten
+them in a commit.
+
+If you are a very careful person you might proof read your diffs before
+committing. While I generally follow this advice it can be quite easy to miss
+something, like a binding.pry you were using to debug/test your changes. You'll
+probably catch this before you deploy.
 
 If you don't though&hellip;
 
-Well, let's just avoid it in the first place.
+Well, let's just avoid those potentially timeouts in prod by utilizing a
+*pre-commit hook*. For those who do not know, [git hooks][] are a mechanism
+available to git users which executes scripts when "certain important actions
+occur" with your git repository. One of these important actions is commiting.
+Git provides several hooks around this action, one of which is the
+aforementioned *pre-commit hook*.
 
-    #!/bin/sh
+<script src="https://gist.github.com/RyanMcG/5775028.js"></script>
 
-    COMMAND='git grep -n --cached'
-    ARGS='-e debugger -e "binding\.pry" -- app config db spec vendor script lib Rakefile Guardfile Capfile'
+This is just a simple (and suboptimal) shell script that when run at the
+root of a Rails project will attempt to use [git's grep][gg] to find instances of
+`debugger` or `binding.pry` in your source. If one is found it exits non-zero
+which indicates to git that the in-progress commit should be cancelled! Mistake
+avoided!
 
-    if eval "$COMMAND -q $ARGS" ; then
-      echo "You have a binding.pry or a debugger in a bad place.\n"
-        eval "$COMMAND $ARGS"
-        exit 1
-    fi
+If you have pre-commit hook returning a false positive (returning non-zero when
+it should not be) you may always bypass a failing pre-commit hook by adding a
+`--no-verify` (or `-n` for lazy users) to your commit command.
 
-    ARGS='-e "^<<<<<<< " -e "^>>>>>>> " -e "^=======$" -- app config db spec vendor script lib Rakefile Guardfile Capfile'
+## But wait, there's more
 
-    if eval "$COMMAND -q $ARGS" ; then
-        echo "You have some left over diff artifacts.\n"
-        eval "$COMMAND $ARGS"
-        exit 1
-    fi
+As an added bonus this pre-commit hook also checks for diff artifacts like
+`<<<<<<<`, `>>>>>>>` and `=======`. This is to ensure you do not try to commit
+merge conflicts either.
 
-[A gist of it](https://gist.github.com/RyanMcG/5775028#file-rails-pre-commit)
+This is just one more optional check you can add to your pre-commit hook.
+Perhaps, you want to stop calls to `console.log` in JavaScript source too.
 
-This is just a simple (probably suboptimal) shell script that when run at the
-root of a Rails project will attempt to use `git grep` to find instances of
-`debugger` or `binding.pry` in your source.
+## Installation
 
-As an added bonus it also checks for diff artifacts like `<<<<<<<`, `>>>>>>>`
-and `=======`. Just to ensure you do not try to commit a merge conflict or the
-like.
+To install this hook you'll have to do something like the following.
 
-As you may have noticed it exits 1 when it finds something (defaults to 0
-otherwise). That means that you can make this a git pre-commit hook! Here's how:
+    curl https://gist.github.com/RyanMcG/5775028/raw/rails-pre-commit
+    chmod +x rails-pre-commit
+    mv rails-pre-commit path/to/your/rails/root/.git/hooks/pre-commit
 
-    curl https://gist.github.com/RyanMcG/5775028/raw/rails-pre-commit -o pre-commit
-    chmod +x pre-commit
-    mv pre-commit path/to/your/rails/root/.git/hooks/
+## Modularity
 
-That's it!
+Complex hooks can often develop over time. Some modularity is often wanted to
+make adding new components to a hook easier and to make sharing easier. While
+git does help with this on its own there are various projects which do.
+
+One such project, aptly named [git-hooks][], allows many scripts to be specifies
+for the same action by using subdirectories with the names of the hook inside of
+a folder called `git_hooks` at the root of the repository. Source controlling
+the hooks is often desirable so you can share them with the rest of your team.
 
 [pry]: http://pryrepl.org/
 [debugger]: http://devdocs.io/javascript/statements/debugger
+[git hooks]: http://git-scm.com/book/en/Customizing-Git-Git-Hooks
+[git-hooks]: https://github.com/icefox/git-hooks
+[gg]: https://www.kernel.org/pub/software/scm/git/docs/git-grep.html
