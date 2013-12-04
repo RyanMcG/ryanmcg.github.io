@@ -10,20 +10,37 @@ h1 {
   font-weight: 400;
 }
 
-h1#site-title {
-  font-weight: 200;
-}
-
-#contacts span.end-point {
-  font-weight: 700;
-  &:after {
-    content: ": ";
+#contacts {
+  margin-bottom: @padding-base-vertical;
+  span.end-point {
+    min-width: 53px;
+    display: inline-block;
+    text-align: right;
+    margin-right: .5em;
+    font-weight: 700;
+    &:after {
+      content: ": ";
+    }
+  }
+  .contact {
+    text-align: center;
+    text-shadow: 0 2px 0 @link-hover-color;
+    a:hover, a:focus, a:active { color: darken(@link-color, 2%); }
+    i:active { margin-top: 2px; text-shadow: none; }
   }
 }
 
 #site-title {
+  font-weight: 200;
+  font-size: 36pt;
   margin: .5em 0 0;
-  padding: 0;
+  padding: 0 0 .25em;
+  text-shadow: 1px 1px 0 black;
+  a {
+    color: @brand-primary;
+    &:hover, &:focus { text-decoration: none; }
+    &:hover { color: @link-hover-color; }
+  }
 }
 
 .my-nav {
@@ -34,16 +51,45 @@ h1#site-title {
   margin-top: 1em;
 
   // Avoid top margin on the first child header in content.
-  h2, h3, h4, h5, h6 {
-    &:first-child {
-      margin-top: 0;
-    }
+  h1:first-child {
+    margin-top: 0;
   }
 }
 
-.end-point {
-  min-width: 5em;
-  display: inline-block;
-  text-align: right;
-  margin-right: .5em;
+#donate {
+  padding: @padding-base-vertical;
+  text-align: center;
+}
+
+#cc {
+  @cc-logo-size: 88px;
+  #cc-logo {
+    float: left;
+    width: @cc-logo-size;
+  }
+  #cc-text {
+    margin-left: @cc-logo-size;
+    padding-left: @padding-base-horizontal;
+  }
+  .clearfix();
+}
+
+#credit {
+  clear: both;
+  color: @gray-light;
+  text-align: center;
+  margin: @padding-large-vertical;
+}
+
+#content {
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: @gray-lighter;
+  margin: @padding-large-vertical 0;
+  padding: @padding-large-vertical 0;
+  box-shadow: inset-shadow
+}
+
+footer {
+  margin-top: 1.5em;
 }

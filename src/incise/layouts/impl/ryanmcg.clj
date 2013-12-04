@@ -3,51 +3,79 @@
                                           deflayout defpartial]]
                             [core :refer [register]])
             [robert.hooke :refer [add-hook]]
-            [incise.layouts.impl.page :refer [page]]
+            (incise.layouts.impl [page :refer [page]]
+                                 [base :as base-layout])
             (hiccup [def :refer :all]
+                    [util :refer [to-uri]]
+                    [page :refer [include-js]]
                     [element :refer :all])))
 
 (defmulti contact (fn [x & _] x))
 (defmethod contact :default
-  [end-point handle]
-  (link-to (str "https://" (name end-point) ".com/" handle)
-           (str \@ handle)))
+  [end-point handle content]
+  (let [end-point (name end-point)]
+    (link-to {:title (str handle " on " end-point)}
+             (str "https://" end-point ".com/" handle)
+             content)))
 (defmethod contact :email
-  [_ email]
-  (mail-to email))
+  [_ email content]
+  (mail-to {:title (str "Email me at " email)} email content))
 
-(defhtml contact-spec [[end-point handle]]
-  [:div.contact
-   [:span.end-point end-point]
-   (contact end-point handle)])
+(defhtml contact-spec [[end-point handle classname]]
+  (let [classname (or classname (str "fa-" (name end-point)))]
+    [:div.contact.col-xs-4
+     (contact end-point handle
+              [:i {:class (str "fa fa-4x " classname)}])]))
+
+(def ^:private license-url
+  "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US")
+
+(defn license-link-to
+  ([attr-map content] (link-to (merge {:rel "license"} attr-map)
+                               license-url
+                               content))
+  ([content] (license-link-to nil content)))
+
+(defhtml donate-button []
+  (link-to {:class "coinbase-button"
+            :data-code "24680873e506998448b8c15fb4f9846e"
+            :data-button-style "donation_small"}
+           "https://coinbase.com/checkouts/24680873e506998448b8c15fb4f9846e"
+           "Donate Bitcoins")
+  (include-js "https://coinbase.com/assets/button.js"))
 
 (defpartial footer
   "A footer parital with a Creative Commons license attached."
   [{:keys [contacts author]}]
-  [:hr]
   [:footer
-   [:div.row
-    [:div#cc.col-md-8
-     [:div.row
-      (link-to {:class "col-md-2" :rel "license"}
-               "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"
-               (image "http://i.creativecommons.org/l/by-sa/3.0/88x31.png"
-                      "Creative Commons License"))
-      [:p.col-md10-
-       "This website and its content are licensed under the "
-       (link-to {:rel "license"}
-                "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"
-                "Creative Commons Attribution-ShareAlike 3.0 Unported License")
-       " by " author " except where specified otherwise."]]]
-    [:div#contacts.col-md-4 (map contact-spec contacts)]]
-   [:p
-    "This website was "
-    (link-to "https://github.com/RyanMcG/incise" "incise") "d."]])
+   [:div#cc.col-md-6
+    (license-link-to
+      {:id "cc-logo"}
+      (image "http://i.creativecommons.org/l/by-sa/3.0/88x31.png"
+             "Creative Commons License"))
+    [:p#cc-text
+     "This website and its content are licensed under the "
+     (license-link-to
+       "Creative Commons Attribution-ShareAlike 3.0 Unported License")
+     " by " author " except where specified otherwise."]]
+   [:div#donate.col-md-2 (donate-button)]
+   [:div#contacts.col-md-4
+    [:div.row (map contact-spec contacts)]]
+   [:p#credit "This website was "
+    (link-to "https://github.com/RyanMcG/incise" "incised") "."]])
 
-(deflayout ryanmcg []
-  (repartial incise.layouts.impl.base/javascripts
+(deflayout ryanmcg
+  "Stuff"
+  []
+  (repartial base-layout/javascripts
              #(cons "http://code.jquery.com/jquery-2.0.3.min.js" %))
-  (repartial incise.layouts.impl.base/footer footer)
+  (repartial base-layout/stylesheets
+             #(cons "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" %))
+  (repartial base-layout/head
+             #(conj % [:link {:rel "icon"
+                              :type "image/png"
+                              :href (to-uri "/assets/images/vm.png")}]))
+  (repartial base-layout/footer footer)
   (use-layout page))
 
 (register [:ryanmcg] ryanmcg)

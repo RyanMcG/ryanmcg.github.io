@@ -6,6 +6,6 @@
                "stylesheets/app.css.stefon"]
  :deploy {:workflow :git-branch
           :branch "master"}
- :contacts {:twitter "Ryan_VM"
-            :github "RyanMcG"
-            :email "ryan@ryanmcg.com"}}
+ :contacts [[:twitter "Ryan_VM"]
+            [:github "RyanMcG"]
+            [:email "ryan@ryanmcg.com" "fa-envelope"]]}
