@@ -1,5 +1,4 @@
-{:layout :ryanmcg
- :path "index.html"}
+{:path "index.html"}
 
 (require '(hiccup [core :refer [html h]]
                   [element :refer [link-to]])

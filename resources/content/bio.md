@@ -1,5 +1,4 @@
-{:layout :ryanmcg
- :title "Bio"}
+{:title "Bio"}
 
 # Bio
 

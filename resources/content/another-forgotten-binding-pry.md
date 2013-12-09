@@ -1,5 +1,4 @@
-{:layout :ryanmcg
- :title "Another forgotten binding.pry"
+{:title "Another forgotten binding.pry"
  :date "2013-08-12"
  :category :code
  :tags [:hooks :code :rails :git :debugger :pry :diff]}
