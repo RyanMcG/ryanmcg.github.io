@@ -12,16 +12,16 @@ them in a commit.
 
 If you are a very careful person you might proof read your diffs before
 committing. While I generally follow this advice it can be quite easy to miss
-something, like a binding.pry you were using to debug/test your changes. You'll
-probably catch this before you deploy.
+something, like a `binding.pry` you were using to debug/test your changes.
+You'll probably catch this before you deploy.
 
 If you don't though&hellip;
 
-Well, let's just avoid those potentially timeouts in prod by utilizing a
-*pre-commit hook*. For those who do not know, [git hooks][] are a mechanism
-available to git users which executes scripts when "certain important actions
-occur" with your git repository. One of these important actions is commiting.
-Git provides several hooks around this action, one of which is the
+Well, let's just avoid those potentially timeouts devastating in prod by
+utilizing a *pre-commit hook*. For those who do not know, [git hooks][] are a
+mechanism available to git users which executes scripts when "certain important
+actions occur" with your git repository. One of these important actions is
+commiting.  Git provides several hooks around this action, one of which is the
 aforementioned *pre-commit hook*.
 
 <script src="https://gist.github.com/RyanMcG/5775028.js"></script>
