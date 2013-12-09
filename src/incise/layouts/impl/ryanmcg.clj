@@ -10,17 +10,12 @@
                     [page :refer [include-js]]
                     [element :refer :all])))
 
-(defn mbtn-link-to
-  ([attr-map uri content] (link-to (merge {:class "mbtn"} attr-map)
-                                   uri
-                                   content))
-  ([uri content] (mbtn-link-to nil uri content)))
-
 (defmulti contact (fn [x & _] x))
 (defmethod contact :default
   [end-point handle content]
   (let [end-point (name end-point)]
-    (mbtn-link-to {:title (str handle " on " end-point)}
+    (link-to {:class "mbtn"
+              :title (str handle " on " end-point)}
                   (str "https://" end-point ".com/" handle)
                   content)))
 (defmethod contact :email
@@ -77,8 +72,8 @@
   [_ _ [header]]
   (conj header
         [:ul#main-navigation.navigation
-         [:li (mbtn-link-to "/bio/" "Bio")]
-         [:li (mbtn-link-to "/attributions/" "Attributions")]]
+         [:li (link-to "/bio/" "Bio")]
+         [:li (link-to "/attributions/" "Attributions")]]
         [:div.clearfix]))
 
 (deflayout ryanmcg
