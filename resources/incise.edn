@@ -4,6 +4,7 @@
  :out-dir "resources/public"
  :precompiles ["javascripts/app.js.stefon"
                "stylesheets/app.css.stefon"]
+ :parse-defaults {:layout :ryanmcg}
  :deploy {:workflow :git-branch
           :branch "master"}
  :contacts [[:twitter "Ryan_VM"]
