@@ -3,23 +3,31 @@
                                           deflayout defpartial]]
                             [core :refer [register]])
             [robert.hooke :refer [add-hook]]
-            (incise.layouts.impl [page :refer [page]]
+            (incise.layouts.impl [page :as page-layout]
                                  [base :as base-layout])
             (hiccup [def :refer :all]
                     [util :refer [to-uri]]
                     [page :refer [include-js]]
                     [element :refer :all])))
 
+(defn mbtn-link-to
+  ([attr-map uri content] (link-to (merge {:class "mbtn"} attr-map)
+                                   uri
+                                   content))
+  ([uri content] (mbtn-link-to nil uri content)))
+
 (defmulti contact (fn [x & _] x))
 (defmethod contact :default
   [end-point handle content]
   (let [end-point (name end-point)]
-    (link-to {:title (str handle " on " end-point)}
-             (str "https://" end-point ".com/" handle)
-             content)))
+    (mbtn-link-to {:title (str handle " on " end-point)}
+                  (str "https://" end-point ".com/" handle)
+                  content)))
 (defmethod contact :email
   [_ email content]
-  (mail-to {:title (str "Email me at " email)} email content))
+  (mail-to {:class "mbtn"
+            :title (str "Email me at " email)}
+           email content))
 
 (defhtml contact-spec [[end-point handle classname]]
   (let [classname (or classname (str "fa-" (name end-point)))]
@@ -64,6 +72,15 @@
    [:p#credit "This website was "
     (link-to "https://github.com/RyanMcG/incise" "incised") "."]])
 
+(defpartial header
+  "Add nav to header"
+  [_ _ [header]]
+  (conj header
+        [:ul#main-navigation.navigation
+         [:li (mbtn-link-to "/bio/" "Bio")]
+         [:li (mbtn-link-to "/attributions/" "Attributions")]]
+        [:div.clearfix]))
+
 (deflayout ryanmcg
   "Stuff"
   []
@@ -76,6 +93,7 @@
                               :type "image/png"
                               :href (to-uri "/assets/images/vm.png")}]))
   (repartial base-layout/footer footer)
-  (use-layout page))
+  (repartial page-layout/header header)
+  (use-layout page-layout/page))
 
 (register [:ryanmcg] ryanmcg)
