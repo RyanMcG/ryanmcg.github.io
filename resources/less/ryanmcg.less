@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,900,700italic,900italic);
 @import "bootstrap.less";
 @import "gist.less";
+@import "mbtn.less";
+@import "navigation.less";
 
 h2, h3, h4, h5, h6 {
   font-weight: 500;
@@ -12,22 +14,7 @@ h1 {
 
 #contacts {
   margin-bottom: @padding-base-vertical;
-  span.end-point {
-    min-width: 53px;
-    display: inline-block;
-    text-align: right;
-    margin-right: .5em;
-    font-weight: 700;
-    &:after {
-      content: ": ";
-    }
-  }
-  .contact {
-    text-align: center;
-    text-shadow: 0 2px 0 @link-hover-color;
-    a:hover, a:focus, a:active { color: darken(@link-color, 2%); }
-    i:active { margin-top: 2px; text-shadow: none; }
-  }
+  .contact { text-align: center; }
 }
 
 #site-title {
@@ -41,10 +28,27 @@ h1 {
     &:hover, &:focus { text-decoration: none; }
     &:hover { color: @link-hover-color; }
   }
+  float: left;
 }
 
-.my-nav {
+#main-navigation {
+  float: right;
   margin-top: 1em;
+}
+
+@media (max-width: @screen-sm) {
+  #site-title {
+    padding: 0;
+    float: none;
+  }
+  #main-navigation {
+    float: none;
+    text-align: center;
+    li {
+      margin: 0 0 .2em;
+      display: block;
+    }
+  }
 }
 
 #content {
@@ -77,6 +81,7 @@ h1 {
 #credit {
   clear: both;
   color: @gray-light;
+  font-weight: 100;
   text-align: center;
   margin: @padding-large-vertical;
 }
