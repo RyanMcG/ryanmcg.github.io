@@ -7,8 +7,18 @@ Like most software these days this website was built using other tools.
 > If I have seen further it is by standing on ye shoulders of Giants. -- Sir
 > Isaac Newton
 
-My thanks to the authors of the following projects for allowing me (and others)
-to stand on their shoulders.
+My thanks to the authors, maintainers and everyone who has contributed in any
+way to the following projects for allowing me (and others) to stand on
+their shoulders.
+
+### CSS Framework
+
+This website uses [Bootstrap][].
+
+> Designed and built with all the love in the world by
+> [@mdo](http://twitter.com/mdo) and [@fat](http://twitter.com/fat).
+
+It uses the [Apache License, version 2.0][apache 2.0]
 
 ### Icons
 
@@ -25,15 +35,6 @@ The typeface used on this website is [Roboto] by Christian Robertson.
 > Roboto doesn’t compromise, allowing letters to be settled into their natural
 > width. This makes for a more natural reading rhythm more commonly found in
 > humanist and serif types.
-
-It uses the [Apache License, version 2.0][apache 2.0]
-
-### CSS Framework
-
-This website uses [Bootstrap][].
-
-> Designed and built with all the love in the world by
-> [@mdo](http://twitter.com/mdo) and [@fat](http://twitter.com/fat).
 
 It uses the [Apache License, version 2.0][apache 2.0]
 
