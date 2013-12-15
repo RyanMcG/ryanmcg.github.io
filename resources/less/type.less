@@ -7,7 +7,7 @@
 // -------------------------
 
 p {
-  margin: 0 0 (@line-height-computed / 2);
+  margin: 0 0 @p-margin-bottom;
 }
 .lead {
   margin-bottom: @line-height-computed;
@@ -63,13 +63,13 @@ h1,
 h2,
 h3 {
   margin-top: @line-height-computed;
-  margin-bottom: (@line-height-computed / 2);
+  margin-bottom: @p-margin-bottom;
 }
 h4,
 h5,
 h6 {
-  margin-top: (@line-height-computed / 2);
-  margin-bottom: (@line-height-computed / 2);
+  margin-top: @p-margin-bottom;
+  margin-bottom: @p-margin-bottom;
 }
 
 h1, .h1 { font-size: floor(@font-size-base * 2.60); } // ~36px
@@ -89,7 +89,7 @@ h4 small, .h4 small { font-size: @font-size-base; }
 // -------------------------
 
 .page-header {
-  padding-bottom: ((@line-height-computed / 2) - 1);
+  padding-bottom: (@p-margin-bottom - 1);
   margin: (@line-height-computed * 2) 0 @line-height-computed;
   border-bottom: 1px solid @page-header-border-color;
 }
@@ -103,7 +103,7 @@ h4 small, .h4 small { font-size: @font-size-base; }
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: (@line-height-computed / 2);
+  margin-bottom: @p-margin-bottom;
   ul,
   ol{
     margin-bottom: 0;
@@ -180,7 +180,7 @@ abbr.initialism {
 
 // Blockquotes
 blockquote {
-  padding: (@line-height-computed / 2) @line-height-computed;
+  padding: @p-margin-bottom @line-height-computed;
   margin: 0 0 @padding-base-vertical;
   border-left: 5px solid @blockquote-border-color;
   p {
