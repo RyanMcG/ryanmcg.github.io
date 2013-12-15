@@ -52,15 +52,6 @@ h1 {
   }
 }
 
-#content {
-  margin-top: 1em;
-
-  // Avoid top margin on the first child header in content.
-  h1:first-child {
-    margin-top: 0;
-  }
-}
-
 #donate {
   padding: @padding-base-vertical;
   text-align: center;
@@ -92,8 +83,12 @@ h1 {
   border-style: solid;
   border-color: @gray-lighter;
   margin: @padding-large-vertical 0;
-  padding: @padding-large-vertical 0;
-  box-shadow: inset-shadow
+  padding: @padding-large-vertical 0 (@padding-large-vertical - @p-margin-bottom);
+  box-shadow: inset-shadow;
+
+  h1:first-child {
+    margin-top: 0;
+  }
 }
 
 footer {
