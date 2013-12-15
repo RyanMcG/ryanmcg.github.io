@@ -11,4 +11,8 @@
      [:span.date date]]))
 
 (html
-  [:ul.posts (map post (filter :date parses))])
+  [:ul.posts (->> parses
+                  (filter :date)
+                  (sort-by :date)
+                  (reverse)
+                  (map post))])
