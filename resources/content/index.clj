@@ -7,7 +7,7 @@
          '[incise.parsers.html :refer [Parse->path]])
 
 (defn mformat [date]
-  (unparse (formatter "MMM dd, yyyy")
+  (unparse (formatter "MMM d, yyyy")
            (from-date date)))
 
 (defn post [{:keys [title date] :as parse}]
