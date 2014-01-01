@@ -11,7 +11,7 @@ on [my résumé][resume] and on [LinkedIn][].
 More importantly, I live with my best friend Jenny and our dog Sirius. Here is a
 picture of us.
 
-![Me, Jenny and Sirius]()
+![Me, Jenny and Sirius](https://dl.dropboxusercontent.com/u/1378350/me-jenny-and-sirius.jpg)
 
 My [twitter][], [github][] and [email][] can be found in the footer of every
 page on this site.
