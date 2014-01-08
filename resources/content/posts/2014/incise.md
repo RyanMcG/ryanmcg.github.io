@@ -5,11 +5,10 @@
 
 # Static website generation with [incise][]
 
-A few months of work and one spin off library later I am now releasing a `0.1.0` version of incise
+A few months of work and one spin off library later, I am now releasing a `0.1.0` version of incise
 ([see it on clojars](https://clojars.org/incise)).
-I offer very little justification for offering the world yet another option for static website generation.
-I simply felt that what was available was not ideal for me.
-I also wanted my generator to be implemented in [Clojure][], my preferred language.
+I offer very little justification for providing the world with yet another option for static website generation; 
+I simply felt that what was available was not ideal for me, and wanted my generator to be implemented in [Clojure][], my preferred language.
 
 Your best introduction to incise is available on [its website][incise].
 Coincidentally, that website is generated from [incise's README][readme].
