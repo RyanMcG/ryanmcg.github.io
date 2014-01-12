@@ -5,9 +5,8 @@
 
 # Another forgotten binding.pry
 
-Tools like [pry][] and [debugger][] are almost indispensable once you have
-gotten used to them, however I have yet to meet a user who has not forgotten
-them in a commit.
+Tools like [pry][] and [debugger][] are almost indispensable once you have gotten used to them.
+Unfortunately, nearly all users will accidently include them in a commit at some point.
 
 If you are a very careful person you might proof read your diffs before
 committing. While I generally follow this advice it can be quite easy to miss
@@ -16,12 +15,10 @@ You'll probably catch this before you deploy.
 
 If you don't though&hellip;
 
-Well, let's just avoid those potentially timeouts devastating in prod by
-utilizing a *pre-commit hook*. For those who do not know, [git hooks][] are a
-mechanism available to git users which executes scripts when "certain important
-actions occur" with your git repository. One of these important actions is
-commiting.  Git provides several hooks around this action, one of which is the
-aforementioned *pre-commit hook*.
+Well, let's just avoid those potentially devastating timeouts in prod by utilizing a *pre-commit hook*.
+For those unaware, [git hooks][] are a mechanism available to git users which executes scripts when "certain important actions occur" with your git repository.
+One of these important actions is commiting.
+Git provides several hooks around this action, one of which is the aforementioned *pre-commit hook*.
 
 <script src="https://gist.github.com/RyanMcG/5775028.js"></script>
 
@@ -37,12 +34,10 @@ it should not be) you may always bypass a failing pre-commit hook by adding a
 
 ## But wait, there's more
 
-As an added bonus this pre-commit hook also checks for diff artifacts like
-`<<<<<<<`, `>>>>>>>` and `=======`. This is to ensure you do not try to commit
-merge conflicts either.
-
-This is just one more optional check you can add to your pre-commit hook.
-Perhaps, you want to stop calls to `console.log` in JavaScript source too.
+You may have noticed that the above script does not simply check for `binding.pry` and `debugger`.
+It also checks for diff artifacts (i.e. `<<<<<<<`, `>>>>>>>` and `=======`).
+These are just two things you may want in your precommit hook.
+Perhaps, you want to avoid committing invocations of `console.log` in JavaScript source too.
 
 ## Installation
 
@@ -54,12 +49,12 @@ To install this hook you'll have to do something like the following.
 
 ## Modularity
 
-Complex hooks can often develop over time. Some modularity is often wanted to
-make adding new components to a hook easier and to make sharing easier. While
-git does help with this on its own there are various projects which do.
+Complex hooks often develop over time.
+When they do, modularity can simplify creating and sharing new part.
+While git does not help with this out of the box there are various projects which do.
 
 One such project, aptly named [git-hooks][], allows many scripts to be specifies
-for the same action by using subdirectories with the names of the hook inside of
+for the same action. It uses subdirectories with the same name as the the hook inside of
 a folder called `git_hooks` at the root of the repository. Source controlling
 the hooks is often desirable so you can share them with the rest of your team.
 
