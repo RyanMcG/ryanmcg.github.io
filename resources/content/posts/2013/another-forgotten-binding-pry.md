@@ -16,7 +16,7 @@ You'll probably catch this before you deploy.
 If you don't though&hellip;
 
 Well, let's just avoid those potentially devastating timeouts in prod by utilizing a *pre-commit hook*.
-For those unaware, [git hooks][] are a mechanism available to git users which executes scripts when "certain important actions occur" with your git repository.
+For those unaware, [git hooks][] are a mechanism available to git users which executes scripts when "certain important actions occur" within your git repository.
 One of these important actions is commiting.
 Git provides several hooks around this action, one of which is the aforementioned *pre-commit hook*.
 
