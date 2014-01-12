@@ -5,14 +5,13 @@
 
 # Swap numbers plugin for VIM
 
-During an impromptu lightning talk session at [NationJS][] someone, and I
-ashamedly forget who, told me I had been using my keyboard wrong. The *right*
+During an impromptu lightning talk session at [NationJS][] someone informed me I had been using my keyboard wrong. The *right*
 way is to swap the number keys at the top of the keyboard with their shifted
 counterpart. I loved the idea so much that I tried to implement it in Vim (as
 opposed to making the swap system wide). A misunderstanding of `noremap` was all
 that was necessary to fail.
 
-Fast forward a couple of months, a proper understanding of `noremap` and here it
+Fast forward a couple of months with a proper understanding of `noremap` and here it
 is, [vim-swapnumbers][].
 
 This plugin will swap numbers in insert mode with there shifted counterparts
