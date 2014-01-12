@@ -1,6 +1,7 @@
 {:title "Static website generation with incise"
  :date "2014-1-1"
  :category :code
+ :publish false
  :tags [:code :clojure :incise :projects]}
 
 # Static website generation with [incise][]
