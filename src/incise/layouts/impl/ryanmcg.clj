@@ -47,6 +47,12 @@
            "Donate Bitcoins")
   (include-js "https://coinbase.com/assets/button.js"))
 
+(def analytics-code
+  "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47124253-1', 'ryanmcg.com');
+  ga('send', 'pageview');")
+
 (defpartial footer
   "A footer parital with a Creative Commons license attached."
   [{:keys [contacts author]}]
@@ -65,7 +71,8 @@
    [:div#contacts.col-md-4
     [:div.row (map contact-spec contacts)]]
    [:p#credit "This website was "
-    (link-to "https://github.com/RyanMcG/incise" "incised") "."]])
+    (link-to "https://github.com/RyanMcG/incise" "incised") "."]
+   (javascript-tag analytics-code)])
 
 (defpartial header
   "Add nav to header"
