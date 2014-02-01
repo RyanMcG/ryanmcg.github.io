@@ -80,6 +80,7 @@
   (conj header
         [:ul#main-navigation.navigation
          [:li (link-to "/bio/" "Bio")]
+         [:li (link-to "/reading/" "Reading")]
          [:li (link-to "/attributions/" "Attributions")]]
         [:div.clearfix]))
 
