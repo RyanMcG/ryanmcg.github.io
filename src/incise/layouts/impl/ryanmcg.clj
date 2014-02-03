@@ -1,6 +1,6 @@
 (ns incise.layouts.impl.ryanmcg
-  (:require (incise.layouts [html :refer [repartial use-layout
-                                          deflayout defpartial]]
+  (:require (incise.layouts [utils :refer [repartial use-layout
+                                           deflayout defpartial]]
                             [core :refer [register]])
             [robert.hooke :refer [add-hook]]
             (incise.layouts.impl [page :as page-layout]
