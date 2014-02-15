@@ -5,6 +5,7 @@
             [robert.hooke :refer [add-hook]]
             (incise.layouts.impl [page :as page-layout]
                                  [base :as base-layout])
+            [stefon.core :refer [link-to-asset]]
             (hiccup [def :refer :all]
                     [util :refer [to-uri]]
                     [page :refer [include-js]]
@@ -84,13 +85,16 @@
          [:li (link-to "/attributions/" "Attributions")]]
         [:div.clearfix]))
 
+(defpartial stylesheets [] ["//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+                            (link-to-asset "stylesheets/app.css.stefon")])
+(defpartial javascripts [] ["http://code.jquery.com/jquery-2.0.3.min.js"
+                            (link-to-asset "javascripts/app.js.stefon")])
+
 (deflayout ryanmcg
   "Stuff"
   []
-  (repartial base-layout/javascripts
-             #(cons "http://code.jquery.com/jquery-2.0.3.min.js" %))
-  (repartial base-layout/stylesheets
-             #(cons "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" %))
+  (repartial base-layout/javascripts javascripts)
+  (repartial base-layout/stylesheets stylesheets)
   (repartial base-layout/head
              #(conj % [:link {:rel "icon"
                               :type "image/png"
