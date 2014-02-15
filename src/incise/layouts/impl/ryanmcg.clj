@@ -40,13 +40,18 @@
                                content))
   ([content] (license-link-to nil content)))
 
-(defhtml donate-button []
-  (link-to {:class "coinbase-button"
-            :data-code "24680873e506998448b8c15fb4f9846e"
-            :data-button-style "donation_small"}
-           "https://coinbase.com/checkouts/24680873e506998448b8c15fb4f9846e"
-           "Donate Bitcoins")
-  (include-js "https://coinbase.com/assets/button.js"))
+(def ^:private my-btc-addr "1BgW7o3GfsuNQu3eMyEV7oM58YvUZBv4VV")
+(def ^:private kcc-btc-addr "13UUaGK8ZDLxjY7RYu2bKEabqjww2KDyxD")
+(defhtml feeling-generous []
+  [:div#feeling-generous
+   [:h6 "Do you like what you read? I accept tips."]
+   [:p "Send some BTC to " [:code my-btc-addr]]
+   [:p.or "OR"]
+   [:p "Donate to "
+    (link-to "http://iccf-holland.org/" "Kibaale Children's Centre")
+    " @ " [:a {:href "http://iccf-holland.org/bitcoin.html"
+               :title "Trust but verify"}
+           [:code kcc-btc-addr]]]])
 
 (def analytics-code
   "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -58,7 +63,7 @@
   "A footer parital with a Creative Commons license attached."
   [{:keys [contacts author]}]
   [:footer
-   [:div#cc.col-md-6
+   [:div#cc.col-md-5
     (license-link-to
       {:id "cc-logo"}
       (image "http://i.creativecommons.org/l/by-sa/3.0/88x31.png"
@@ -68,9 +73,9 @@
      (license-link-to
        "Creative Commons Attribution-ShareAlike 3.0 Unported License")
      " by " author " except where specified otherwise."]]
-   [:div#donate.col-md-2 (donate-button)]
    [:div#contacts.col-md-4
     [:div.row (map contact-spec contacts)]]
+   [:div#donate.col-md-3 (feeling-generous)]
    [:p#credit "This website was "
     (link-to "https://github.com/RyanMcG/incise" "incised") "."]
    (javascript-tag analytics-code)])
