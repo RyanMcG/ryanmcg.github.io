@@ -2,8 +2,8 @@
  :author "Ryan V McGowan"
  :in-dir "resources/content"
  :out-dir "resources/public"
- :precompiles ["javascripts/app.js.stefon"
-               "stylesheets/app.css.stefon"]
+ :stefon {:precompiles ["javascripts/app.js.stefon"
+                        "stylesheets/app.css.stefon"]}
  :parse-defaults {:layout :ryanmcg}
  :deploy {:workflow :git-branch
           :branch "master"}
