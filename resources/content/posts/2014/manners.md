@@ -1,7 +1,7 @@
 {:title "Code with manners"
  :date "2014-2-15"
  :category :code
- :published false
+ :publish false
  :tags [:code :clojure :manners :validation :projects]}
 
 # Code with [manners][project]
