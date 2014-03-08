@@ -1,4 +1,4 @@
-(defproject com.ryanmcg/www "0.1.0-SNAPSHOT"
+(defproject com.ryanmcg/www "2014"
   :description "My personal website (w/ rendered content on gh-pages branch)."
   :url "https://github.com/RyanMcG/ryanmcg.github.io"
   :license {:name "Creative Commons Attribution-ShareAlike 3.0 Unported License"
