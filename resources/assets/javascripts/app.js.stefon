@@ -1,1 +1,2 @@
-["./bootstrap.js"]
+["./highlight.pack.js"
+ "./main.js"]
