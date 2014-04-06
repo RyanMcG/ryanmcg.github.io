@@ -25,14 +25,13 @@ The result is [manners][project].
 
 Manners is pretty minimal.
 I will not explain [the basics of the library][project] or [its API][api-docs] here.
-My goal is to get ***you*** to use manners.
-I hope I can do that by example.
-Please excuse my French.
+The goal of this post is to show *you* what manners can do.
 
 <script src="https://gist.github.com/RyanMcG/9029987.js"></script>
 
-I suggest you give the [project's README][project] a gander if you are interested.
-I also have some [API documentation][api-docs] available.
+Interested?
+I suggest you give the [project's README][project] a gander.
+There is also codox generated [API documentation][api-docs] available.
 
 Now, go forth and avow that your data will, at times, have bad manners.
 
