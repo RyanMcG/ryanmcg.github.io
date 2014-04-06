@@ -24,8 +24,8 @@ html, button, input, select, textarea,
 }
 
 body {
-  line-height: 1.3em;
-  font-size: 13pt;
+  line-height: 1.4em;
+  font-size: 14pt;
   font-weight: 400;
   color: @color;
   text-shadow: 1px 0 0 #f6f6f6;
@@ -102,7 +102,6 @@ footer {
 }
 
 header {
-  margin-bottom: 2em;
   padding-bottom: .8em;
 }
 
@@ -179,7 +178,9 @@ p {
   }
 
   h1:first-child {
-    margin-top: 0;
+    padding: 1em @content-padding 0.5em;
+    margin: 0;
+    line-height: 1.4em;
   }
 
   & > img, & > p > img {
