@@ -1,0 +1,196 @@
+@import "fonts.less";
+@import "variables.less";
+@import 'solarized-dark.less';
+@import "gist.less";
+@import "mbtn.less";
+
+.clearfix() {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
+}
+
+html {
+  background: @bg-color;
+  background: radial-gradient(circle, lighten(@bg-color, 2%), darken(@bg-color, 4%)) fixed;
+  height: 100%;
+  width: 100%;
+}
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+  font-family: @sans-serif;
+}
+
+body {
+  line-height: 1.3em;
+  font-size: 13pt;
+  font-weight: 400;
+  color: @color;
+  text-shadow: 1px 0 0 #f6f6f6;
+  margin: 0;
+}
+
+a {
+  color: @link-color;
+  &:hover { color: lighten(@link-color, 5%); }
+  &:visited { color: @link-visited-color; }
+  &:active { color: darken(@link-color, 5%); }
+}
+
+h1, h2, h3, h4 ,h5, h6, .tag-line, footer {
+  font-family: @serif;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4 ,h5, h6, .tag-line {
+  color: darken(@color, 10%);
+}
+
+.content() {
+  max-width: @page-max-width;
+  margin: 0 auto;
+}
+
+.pad-content() {
+  & > {
+    p, h1, h2, h3, h4, h5, h6 {
+      margin-left: @content-padding;
+      margin-right: @content-padding;
+    }
+  }
+}
+
+header, footer, #content {
+  .pad-content();
+}
+
+#content, footer .content {
+  .content();
+}
+
+.dark() {
+  background: @color;
+  background: radial-gradient(circle, lighten(@color, 5%), darken(@color, 2%));
+  color: @bg-color;
+  text-shadow: 1px 1px 0 darken(@color, 5%);
+
+  h1, h2, h3, h4 ,h5, h6 {
+    color: @bg-color;
+  }
+
+  a {
+    color: @dark-link-color;
+    &:hover { color: lighten(@dark-link-color, 10%); }
+    &:visited {
+      color: lighten(@link-visited-color, 25%);
+      &:hover { color: lighten(@link-visited-color, 20%); }
+      &:active { color: lighten(@link-visited-color, 15%); }
+    }
+    &:active { color: darken(@dark-link-color, 5%); }
+  }
+}
+
+footer, header {
+  .dark();
+}
+
+footer {
+  margin-top: 2em;
+  padding-top: 2em;
+}
+
+header {
+  margin-bottom: 2em;
+  padding-bottom: .8em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1em;
+  margin: 2em 0 .666em;
+}
+
+img {
+  padding: 0;
+  margin: 0;
+}
+
+h2 { font-size: 1.5em }
+h3 { font-size: 1.4em }
+h4 { font-size: 1.3em }
+h5 { font-size: 1.2em }
+h6 { font-size: 1.1em }
+
+#credit {
+  text-align: center;
+  font-size: .8em;
+  color: darken(@bg-color, 50%);
+  text-shadow: none;
+  margin: 0 auto;
+  padding: 7em 0 3em;
+}
+
+pre, code {
+  font-family: monospace;
+}
+
+@ul-padding: 2.8em;
+ul, ol {
+  margin: .6em 0 1.2em;
+  padding: 0 0 0 @ul-padding;
+  ul, ol {
+    margin: 0;
+    padding: 0 0 0 (@ul-padding / 2);
+  }
+}
+
+hr {
+  @hr-inset: 3em;
+  border: 0;
+  height: 1px;
+  background-color: lighten(@color, 76%);
+  margin: 3em 0;
+}
+
+p {
+  margin: 0 0 .5em;
+}
+
+
+#content {
+  position: relative;
+
+  @pre-padding: .4em;
+  & > pre {
+    border-radius: 2px;
+    box-shadow: inset 0 0 (2 * @pre-padding) rgba(15, 15, 15, .87), 0 0 @pre-padding rgba(24, 24, 24, .34);
+    border: 2px solid @sol_2;
+    font-size: 11pt;
+    padding: @pre-padding;
+    text-shadow: none;
+    overflow-x: auto;
+    white-space: pre;
+    word-wrap: normal;
+    code {
+      padding: (@pre-padding - .2em) @pre-padding;
+      .clearfix();
+    }
+  }
+
+  h1:first-child {
+    margin-top: 0;
+  }
+
+  & > img, & > p > img {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 1em;
+    border: 1px solid #dddddd;
+    background-color: #eeeeee;
+    box-shadow: inset 0 0 1em rgba(255, 255, 255, 0.4);
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
