@@ -1,6 +1,6 @@
 .navigation {
   max-width: @page-width;
-  padding: 0;
+  padding: 0 @content-padding;
   margin: 0 auto;
   list-style: none;
   font-family: @serif;
@@ -13,7 +13,7 @@
     &:first-child {
       margin-left: 0;
     }
-    display: inline;
+    display: inline-block;
     a { .mbtn(); }
   }
 }
