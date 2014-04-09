@@ -26,18 +26,10 @@ html, button, input, select, textarea,
 }
 
 #content {
-  color: @color;
-  text-shadow: 1px 0 0 #f6f6f6;
+  overflow-y: hidden;
   padding-bottom: 1em;
   background: @bg-color;
   background: radial-gradient(circle, lighten(@bg-color, 3%), darken(@bg-color, 10%)) fixed;
-
-  a {
-    color: @link-color;
-    &:hover { color: lighten(@link-color, 5%); }
-    &:visited { color: @link-visited-color; }
-    &:active { color: darken(@link-color, 5%); }
-  }
 }
 
 h1, h2, h3, h4 ,h5, h6, .tag-line, footer {
@@ -144,6 +136,15 @@ p {
 }
 
 article {
+  color: @color;
+  text-shadow: 1px 0 0 #f6f6f6;
+  a {
+    color: @link-color;
+    &:hover { color: lighten(@link-color, 5%); }
+    &:visited { color: @link-visited-color; }
+    &:active { color: darken(@link-color, 5%); }
+  }
+
   h1, h2, h3, h4 ,h5, h6, .tag-line {
     color: darken(@color, 10%);
   }
