@@ -1,0 +1,34 @@
+.dark-colors() {
+  background: @color;
+  background: radial-gradient(circle, lighten(@color, 5%), darken(@color, 2%));
+  color: @bg-color;
+  text-shadow: 0.05em 0.05em 0 darken(@color, 5%);
+}
+
+.dark-elements() {
+  h1, h2, h3, h4 ,h5, h6 {
+    color: @bg-color;
+  }
+
+  a {
+    color: @dark-link-color;
+    &:hover { color: lighten(@dark-link-color, 10%); }
+    &:visited {
+      color: lighten(@link-visited-color, 25%);
+      &:hover { color: lighten(@link-visited-color, 20%); }
+      &:active { color: lighten(@link-visited-color, 15%); }
+    }
+    &:active { color: darken(@dark-link-color, 5%); }
+  }
+}
+
+.dark() {
+  .dark-colors();
+  .dark-elements();
+}
+
+.clearfix() {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
+}

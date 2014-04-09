@@ -15,19 +15,17 @@
 (defmethod contact :default
   [end-point handle content]
   (let [end-point (name end-point)]
-    (link-to {:class "mbtn"
-              :title (str handle " on " end-point)}
+    (link-to {:title (str handle " on " end-point)}
                   (str "https://" end-point ".com/" handle)
                   content)))
 (defmethod contact :email
   [_ email content]
-  (mail-to {:class "mbtn"
-            :title (str "Email me at " email)}
+  (mail-to {:title (str "Email me at " email)}
            email content))
 
 (defhtml contact-spec [[end-point handle classname]]
   (let [classname (or classname (str "fa-" (name end-point)))]
-    [:div.contact.col-xs-4
+    [:div.contact.pure-u-1-3
      (contact end-point handle
               [:i {:class (str "fa fa-4x " classname)}])]))
 
@@ -63,21 +61,18 @@
   "A footer parital with a Creative Commons license attached."
   [{:keys [contacts author]}]
   [:footer
-   [:div#cc.col-md-5
-    (license-link-to
-      {:id "cc-logo"}
-      (image "http://i.creativecommons.org/l/by-sa/3.0/88x31.png"
-             "Creative Commons License"))
-    [:p#cc-text
-     "This website and its content are licensed under the "
-     (license-link-to
-       "Creative Commons Attribution-ShareAlike 3.0 Unported License")
-     " by " author " except where specified otherwise."]]
-   [:div#contacts.col-md-4
-    [:div.row (map contact-spec contacts)]]
-   [:div#donate.col-md-3 (feeling-generous)]
-   [:p#credit "This website was "
-    (link-to "https://github.com/RyanMcG/incise" "incised") "."]
+   [:div.content
+    [:div#cc
+     [:p#cc-text
+      "This website and its content are licensed under the "
+      (license-link-to
+        "Creative Commons Attribution-ShareAlike 3.0 Unported License")
+      " by " author " except where specified otherwise."]]
+    [:div#contacts
+     [:div.pure-g (map contact-spec contacts)]]
+    [:div#donate (feeling-generous)]
+    [:p#credit "This website was "
+     (link-to "https://github.com/RyanMcG/incise" "incised") "."]]
    (javascript-tag analytics-code)])
 
 (defpartial header
@@ -90,14 +85,13 @@
          [:li (link-to "/attributions/" "Attributions")]]
         [:div.clearfix]))
 
-(defpartial stylesheets [] ["//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
-                            (link-to-asset "stylesheets/app.css.stefon")])
-(defpartial javascripts [] ["http://code.jquery.com/jquery-2.0.3.min.js"
-                            (link-to-asset "javascripts/app.js.stefon")])
+(defpartial stylesheets [] ["//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css"
+                            "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+                            (link-to-asset "stylesheets/vm.css.stefon")
+                            (link-to-asset "stylesheets/ryanmcg.css.stefon")])
+(defpartial javascripts [] [(link-to-asset "javascripts/app.js.stefon")])
 
-(deflayout ryanmcg
-  "Stuff"
-  []
+(deflayout ryanmcg []
   (repartial base-layout/javascripts javascripts)
   (repartial base-layout/stylesheets stylesheets)
   (repartial base-layout/head

@@ -13,8 +13,9 @@
 (defn post [{:keys [title date] :as parse}]
   (let [path (Parse->path parse)]
     [:li
-     [:span.post-title (link-to path title)] " "
-     [:span.date (mformat date)]]))
+     [:div.pure-g-r
+      [:div.pure-u-1-4 [:div.date (mformat date)]]
+      [:div.pure-u-3-4.post-title (link-to path title)]]]))
 
 (html
   [:ul.posts (->> parses

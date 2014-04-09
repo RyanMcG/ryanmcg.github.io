@@ -1,12 +1,12 @@
 @default-mbtn-color: darken(@brand-primary, 30%);
 .mbtn(@depression: 2px, @mbtn-color: @default-mbtn-color) {
-  display: inline-block;
   position: relative;
   color: @mbtn-color;
   &:visited { color: @mbtn-color; }
   text-align: center;
   text-shadow: 0 @depression 0 darken(@mbtn-color, 20%);
   padding-bottom: @depression;
+  text-decoration: none;
   &:hover, &:focus, &:active {
     color: darken(@mbtn-color, 6%);
     text-decoration: none;
