@@ -5,7 +5,7 @@
  :stefon {:precompiles ["javascripts/vm.js.stefon"
                         "stylesheets/vm.css.stefon"
                         "stylesheets/ryanmcg.css.stefon"]}
- :parse-defaults {:layout :vm}
+ :parse-defaults {:layout :ryanmcg}
  :deploy {:workflow :git-branch
           :branch "master"}
  :contacts [[:twitter "Ryan_VM"]
