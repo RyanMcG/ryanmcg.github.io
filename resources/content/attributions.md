@@ -1,4 +1,4 @@
-{:title "Attributions"}
+{}
 
 # Attributions
 
@@ -13,33 +13,42 @@ their shoulders.
 
 ### CSS Framework
 
-This website uses [Bootstrap][].
-
-> Designed and built with all the love in the world by
-> [@mdo](http://twitter.com/mdo) and [@fat](http://twitter.com/fat).
-
-It uses the [Apache License, version 2.0][apache 2.0]
+This website uses [purecss][] which uses the [Yahoo BSD
+License](https://github.com/yui/pure-site/blob/master/LICENSE.md).
 
 ### Icons
 
 This website uses the fantastic [Font Awesome][] by Dave Gandy. It is a [fully open
 source][fa-license] icon font.
 
-### Typeface
+### Typefaces
 
-The typeface used on this website is [Roboto] by Christian Robertson.
+This site uses two typefaces from [Brick](http://brick.im/).
 
-> Roboto has a dual nature. It has a mechanical skeleton and the forms are
-> largely geometric. At the same time, the font features friendly and open
-> curves. While some grotesks distort their letterforms to force a rigid rhythm,
-> Roboto doesn’t compromise, allowing letters to be settled into their natural
-> width. This makes for a more natural reading rhythm more commonly found in
-> humanist and serif types.
+##### 1. Heros
 
-It uses the [Apache License, version 2.0][apache 2.0]
+[TeX Gyre Heros][] is a excellent, open source, replacement for Helvetica under the [GUST Font License][GFL].
 
-[Bootstrap]: http://getbootstrap.com/
+##### 2. Raleway
+
+> [Raleway][] is an elegant sans-serif typeface family. Initially designed
+> by Matt McInerney as a single thin weight, it was expanded into a 9
+> weight family by Pablo Impallari and Rodrigo Fuenzalida in 2012 and
+> iKerned by Igino Marini.
+>
+> It is a display face and the download features both old style and lining
+> numerals, standard and discretionary ligatures, a pretty complete set of
+> diacritics, as well as a stylistic alternate inspired by more geometric
+> sans-serif typefaces than its neo-grotesque inspired default character
+> set.
+
+It uses [SIL][].
+
+[purecss]: http://purecss.io/
+[Raleway]: https://www.theleagueofmoveabletype.com/raleway
+[TeX Gyre Heros]: http://www.gust.org.pl/projects/e-foundry/tex-gyre/heros
+[GFL]: http://www.gust.org.pl/projects/e-foundry/licenses/GUST-FONT-LICENSE.txt/view?searchterm=license
+[SIL]: http://scripts.sil.org/OFL
 [apache 2.0]: http://www.apache.org/licenses/LICENSE-2.0.html
-[Roboto]: http://www.google.com/fonts/specimen/Roboto
 [Font Awesome]: http://fontawesome.io
 [fa-license]: http://fontawesome.io/license/
