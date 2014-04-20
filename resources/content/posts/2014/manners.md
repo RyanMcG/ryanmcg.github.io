@@ -27,17 +27,66 @@ Manners is pretty minimal.
 I will not explain [the basics of the library][project] or [its API][api-docs] here.
 The goal of this post is to show *you* what manners can do.
 
-<script src="https://gist.github.com/RyanMcG/9029987.js"></script>
+## Let's get down to business
 
-Interested?
+The core of the library is in the `manners.victorian` namespace.
+
+```clojure
+(use 'manners.victorian)
+```
+
+We'll start off by creating some very simple coaches.
+What is a coach?
+It is function that returns a sequence of messages.
+Typically, these messages are strings but they really can be anything.
+Coaches are the core of *manners*.
+There are several functions which create coaches; everything else is sugar.
+
+```clojure
+(def even-coach (manner even? "must be even"))
+(def div-by-3-coach (manner (= (mod % 3) 0) "must be divisible by 3"))
+
+(even-coach 2)        ; => ()
+(even-coach 3)        ; => ("must be even")
+(div-by-3-coach 9)    ; => ()
+(div-by-3-coach 1000) ; => ("must be divisible by 3")
+```
+
+Coaches can be composed.
+This can happen in two different ways:
+
+1.  *As a manner:*
+    Coaches in a single manner will short circuit.
+    Only messages from the first failing coach will be returned in the sequence.
+
+2.  *As manners:*
+    Coaches combined with the `manners` function are disjoint.
+    Every coach will be execute.
+
+```clojure
+(def even-and-then-db3-coach (manner  even-coach div-by-3-coach))
+(def even-and-db3-coach      (manners even-coach div-by-3-coach))
+
+(even-and-then-db3-coach 2) ; => ("must be divisble by 3")
+(even-and-then-db3-coach 3) ; => ("must be even")
+(even-and-then-db3-coach 1) ; => ("must be even")
+(even-and-db3-coach 2)      ; => ("must be divisble by 3")
+(even-and-db3-coach 3)      ; => ("must be even")
+(even-and-db3-coach 1)      ; => ("must be even" "must be divisible by 3")
+```
+
+MORE TO DO
+
+---
+
+Are you still interested?
 I suggest you give the [project's README][project] a gander.
 There is also codox generated [API documentation][api-docs] available.
 
 Now, go forth and avow that your data will, at times, have bad manners.
 
 [Clojure]: http://clojure.org/
-[api-docs]: http://www.ryanmcg.com/incise/
+[api-docs]: http://www.ryanmcg.com/manners/
 [project]: https://github.com/RyanMcG/manners
 [comparisons]: https://github.com/RyanMcG/manners#comparisons
 [others]: http://www.clojure-toolbox.com/
-[funjs]: http://funjs.herokuapp.com/
