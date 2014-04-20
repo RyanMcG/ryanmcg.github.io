@@ -25,11 +25,11 @@ source][fa-license] icon font.
 
 This site uses two typefaces from [Brick](http://brick.im/).
 
-##### 1. Heros
+##### Heros
 
 [TeX Gyre Heros][] is a excellent, open source, replacement for Helvetica under the [GUST Font License][GFL].
 
-##### 2. Raleway
+##### Raleway
 
 > [Raleway][] is an elegant sans-serif typeface family. Initially designed
 > by Matt McInerney as a single thin weight, it was expanded into a 9
