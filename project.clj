@@ -4,7 +4,7 @@
   :license {:name "Creative Commons Attribution-ShareAlike 3.0 Unported License"
             :url "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [manners "0.5.0"]
+                 [manners "0.6.0"]
                  [com.ryanmcg/incise-vm-layout "0.4.0"]
                  [incise "0.3.2"]
                  [incise-stefon "0.1.0"]]
