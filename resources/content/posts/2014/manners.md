@@ -46,10 +46,10 @@ There are several functions which create coaches; everything else is sugar.
 (def even-coach (manner even? "must be even"))
 (def div-by-3-coach (manner (= (mod % 3) 0) "must be divisible by 3"))
 
-(even-coach 2)        ; => ()
-(even-coach 3)        ; => ("must be even")
-(div-by-3-coach 9)    ; => ()
-(div-by-3-coach 1000) ; => ("must be divisible by 3")
+(even-coach 2)        ; → ()
+(even-coach 3)        ; → ("must be even")
+(div-by-3-coach 9)    ; → ()
+(div-by-3-coach 1000) ; → ("must be divisible by 3")
 ```
 
 Coaches can be composed.
@@ -67,12 +67,12 @@ This can happen in two different ways:
 (def even-and-then-db3-coach (manner  even-coach div-by-3-coach))
 (def even-and-db3-coach      (manners even-coach div-by-3-coach))
 
-(even-and-then-db3-coach 2) ; => ("must be divisible by 3")
-(even-and-then-db3-coach 3) ; => ("must be even")
-(even-and-then-db3-coach 1) ; => ("must be even")
-(even-and-db3-coach 2)      ; => ("must be divisible by 3")
-(even-and-db3-coach 3)      ; => ("must be even")
-(even-and-db3-coach 1)      ; => ("must be even" "must be divisible by 3")
+(even-and-then-db3-coach 2) ; → ("must be divisible by 3")
+(even-and-then-db3-coach 3) ; → ("must be even")
+(even-and-then-db3-coach 1) ; → ("must be even")
+(even-and-db3-coach 2)      ; → ("must be divisible by 3")
+(even-and-db3-coach 3)      ; → ("must be even")
+(even-and-db3-coach 1)      ; → ("must be even" "must be divisible by 3")
 ```
 
 Whoa, **wait**, *what?*
@@ -91,20 +91,20 @@ It iterates through its arguments if it is a coach, great, if it is just a norma
 ;; Notice the use of the `as-coach` function to mark a function as a coach.
 ;; This sets the :coach metadata to true.
 
-(stuff-coach {:errors []})                   ; => ()
-(stuff-coach {:errors ["I have a boo boo"]}) ; => ("I have a boo boo")
-(pred-msg-coach true)                        ; => ()
-(pred-msg-coach "truthy")                    ; => ("must be true")
+(stuff-coach {:errors []})                   ; → ()
+(stuff-coach {:errors ["I have a boo boo"]}) ; → ("I have a boo boo")
+(pred-msg-coach true)                        ; → ()
+(pred-msg-coach "truthy")                    ; → ("must be true")
 
 (def no-errors-and-good (manner      stuff-coach
 ;    A coach            created with a coach ...
                                      (comp true? :good) "all good"))
 ;                            ... and a predicate      message pair
 
-(no-errors-and-good {:good true, :errors []})        ; => ()
-(no-errors-and-good {:good true, :errors ["blarg"]}) ; => ("blarg")
-(no-errors-and-good {:good false, :errors []})       ; => ("not good")
-(no-errors-and-good {:good false, :errors ["wort"]}) ; => ("wort")
+(no-errors-and-good {:good true, :errors []})        ; → ()
+(no-errors-and-good {:good true, :errors ["blarg"]}) ; → ("blarg")
+(no-errors-and-good {:good false, :errors []})       ; → ("not good")
+(no-errors-and-good {:good false, :errors ["wort"]}) ; → ("wort")
 ```
 
 This means rather complex groupings of messages can be specified with nested coaches.
@@ -134,25 +134,24 @@ Let's suppose we have a login request that is parsed into the following map (`a-
 We start of by defining a couple coaches to validate the login is well formed.
 We'll build up `user-coach` throughout this example.
 
+Working with maps is easier with *bellman*.
+
 ```clojure
+(require '[manners.bellman :refer [at]])
 (def login-coach (manner (partial re-find #"[a-z][a-z0-9]+")
                          "must be alpha numeric starting with a letter"))
-(def user-coach
-  (manners (as-coach
-             (comp (partial map (partial str "login "))
-                   login-coach
-                   :login))))
+(def user-coach (at login-coach :login))
 ```
 
-And we can see they behave as expected
+And we can see they behave as expected.
 
 ```clojure
-(user-coach a-user)                     ; => ()
-(user-coach (assoc a-user :login "12")) ; => ("login must be alpha numeric starting with a letter")
-(user-coach (assoc a-user :login "a2")) ; => ()
+(user-coach a-user)                     ; → ()
+(user-coach (assoc a-user :login "12")) ; → ("login must be alpha numeric starting with a letter")
+(user-coach (assoc a-user :login "a2")) ; → ()
+(def doge-address? [address]
+  (re-find #"^D{1}[5-9A-HJ-NP-U]{1}[1-9A-HJ-NP-Za-km-z]{32}$" address))
 ```
-
-I need helper functions for dealing with maps and to use a namespace qualified symbol for the coach metadata.
 
 ## Are you still interested?
 
@@ -162,8 +161,8 @@ There is also codox generated [API documentation][api-docs] available.
 Now, go forth and teach your data some manners.
 
 [Clojure]: http://clojure.org/
-[api-docs]: http://www.ryanmcg.com/manners/
-[project]: https://github.com/RyanMcG/manners
+[api-docs]: http://www.ryanmcg.com/manners/api/
+[project]: http://www.ryanmcg.com/manners/
 [comparisons]: https://github.com/RyanMcG/manners#comparisons
 [others]: http://www.clojure-toolbox.com/
 [funjs]: http://www.amazon.com/gp/product/1449360726/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=1449360726&linkCode=as2&tag=ryanvirtmach-20
