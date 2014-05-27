@@ -82,7 +82,7 @@
 
 (deflayout ryanmcg []
   (repartial vm-layout/stylesheets stylesheets)
-  (repartial page-layout/header header)
+  (repartial vm-layout/header header)
   (repartial vm-layout/footer footer)
   (use-layout vm-layout/vm))
 
