@@ -1,9 +1,8 @@
-(ns incise.layouts.impl.ryanmcg
-  (:require (incise.layouts [utils :refer [repartial use-layout
-                                           deflayout defpartial]]
-                            [core :refer [register]])
-            [incise.layouts.impl.page :as page-layout]
-            [incise.layouts.impl.vm :as vm-layout]
+(ns incise.transformers.impl.ryanmcg-layout
+  (:require (incise.transformers [layout :refer [repartial use-layout
+                                                 deflayout defpartial]]
+                                 [core :refer [register]])
+            [incise.transformers.impl.vm-layout :as vm-layout]
             [stefon.core :refer [link-to-asset]]
             (hiccup [def :refer :all]
                     [element :refer :all])))
@@ -13,8 +12,8 @@
   [end-point handle content]
   (let [end-point (name end-point)]
     (link-to {:title (str handle " on " end-point)}
-                  (str "https://" end-point ".com/" handle)
-                  content)))
+             (str "https://" end-point ".com/" handle)
+             content)))
 
 (defmethod contact :email
   [_ email content]
@@ -86,4 +85,4 @@
   (repartial vm-layout/footer footer)
   (use-layout vm-layout/vm))
 
-(register [:ryanmcg] ryanmcg)
+(register :ryanmcg-layout ryanmcg)
