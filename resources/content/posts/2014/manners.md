@@ -82,11 +82,11 @@ Well, manner expects a sequence of coaches or predicate message pairs.
 It iterates through its arguments if it is a coach, great, if it is just a normal function, it assumes it is a predicate and will use the next argument as a message.
 
 ```clojure
-(def pred-msg-coach (manner      true?       "must be true"))
-;    A coach        created with a predicate message pair.
+; A coach created with a predicate message pair
+(def pred-msg-coach (manner true? "must be true"))
 
-(def stuff-coach (manner      (as-coach :errors)))
-;    A coach     created with another coach.
+; A coach created with another coach
+(def stuff-coach (manner (as-coach :errors)))
 
 ;; Notice the use of the `as-coach` function to mark a function as a coach.
 ;; This sets the :coach metadata to true.
@@ -96,10 +96,9 @@ It iterates through its arguments if it is a coach, great, if it is just a norma
 (pred-msg-coach true)                        ; → ()
 (pred-msg-coach "truthy")                    ; → ("must be true")
 
-(def no-errors-and-good (manner      stuff-coach
-;    A coach            created with a coach ...
+; A coach created with a coach and a predicate message pair
+(def no-errors-and-good (manner stuff-coach
                                      (comp true? :good) "all good"))
-;                            ... and a predicate      message pair
 
 (no-errors-and-good {:good true, :errors []})        ; → ()
 (no-errors-and-good {:good true, :errors ["blarg"]}) ; → ("blarg")
