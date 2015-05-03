@@ -2,6 +2,9 @@
 
 # Reading
 
+I thought reading would make me smarter, but really its just a lot of Jim
+Butcher.
+
 ## 2015
 
 ### Currently Reading

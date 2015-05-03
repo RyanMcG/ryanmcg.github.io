@@ -2,14 +2,12 @@
 
 # Attributions
 
-Like most software these days this website was built using other tools.
-
 > If I have seen further it is by standing on ye shoulders of Giants. -- Sir
 > Isaac Newton
 
-My thanks to the authors, maintainers and everyone who has contributed in any
-way to the following projects for allowing me (and others) to stand on
-their shoulders.
+I'm using the stuff below on/in/around/betwixt this site. They're good
+projects. To the authors, maintainers and other contributors: thanks for
+making your stuff available to schmucks like me.
 
 ### CSS Framework
 
