@@ -10,8 +10,9 @@ Data without manners is problematic.
 You already know that. You are trying to decide if *manners* is right for you.
 It might not be.
 *[Vlad][]* is a great library that has the same basics as *manners*.
-I would like to humbly suggest that *manners* is just a bit more fun.
-Also, one place desperate for a bit of joy is validation code.
+I would like to humbly suggest that *manners* is just a bit more fun
+***and*** if there is any place in our code that desperately wants for
+a ray of joy it is probably validations.
 
 Manners is pretty minimal.
 I will not explain [the basics of the library][project] or [its API][api-docs] here.
@@ -41,7 +42,7 @@ rude, and manner. "Avow" is a good name for a function.
     > to declare or state (something) in an open and public way
 3.  It is a *fucking* __awesome__ word.
 
-If you are a linguist or something and you feel the need to point out that the etymology of the words used by *manners* are not victorian enough or some crap feel free to send you notes [here](mailto:/dev/null).
+Forewarning, I have no idea what the etymology of any of these words are.
 
 ## _Anti_-interface
 
