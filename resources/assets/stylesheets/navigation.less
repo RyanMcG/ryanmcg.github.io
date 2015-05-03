@@ -4,16 +4,15 @@
   margin: 0 auto;
   list-style: none;
   font-family: @serif;
-  font-size: 1.4em;
+  font-size: 1.5em;
   line-height: 1.4em;
-  font-weight: 700;
-  text-align: right;
+  text-align: center;
   li {
     margin-left: 1em;
     &:first-child {
       margin-left: 0;
     }
     display: inline-block;
-    a { .mbtn(); }
+    a { .primary(lighten(@brand-primary, 5%)); }
   }
 }

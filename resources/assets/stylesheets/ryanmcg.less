@@ -1,7 +1,6 @@
 @import "../vm/stylesheets/vm.less";
 @import "navigation.less";
 @import "posts.less";
-@import "shelfari.less";
 
 body {
   .dark-colors(darken(@color, 10%));
@@ -21,21 +20,15 @@ footer {
 }
 
 header {
-  background: radial-gradient(circle, rgba(0,0,0,0.75), rgba(0,0,0,98)), url(/assets/images/cover-1920.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: radial-gradient(ellipse at 80% 108%, rgba(0,0,0,0.1), rgba(0,0,0,.4)),
+              url(/assets/images/cover-1920.jpg) no-repeat 50% 80% fixed;
+  padding-bottom: 4em;
 }
 
 article > h1:first-child {
   .dark();
-  background: radial-gradient(circle, rgba(0,0,0,0.2), rgba(0,0,0,.6)), url(/assets/images/cover-1920.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
+  background: radial-gradient(ellipse at 65% 18%, rgba(0,0,0,0.3), rgba(0,0,0,.5)),
+              url(/assets/images/cover-1920.jpg) no-repeat 50% 80% fixed;
   padding-bottom: 1em;
   margin-bottom: 0.5em;
 }
@@ -48,20 +41,28 @@ article > h1:first-child {
   }
 }
 
+.primary(@color) {
+  outline: 0;
+  color: @color;
+  text-decoration: none;
+  &:hover         { color: darken(@color, 10%); }
+  &:hover:active  { color: darken(@color, 10%); }
+  &:hover:visited { color: darken(@color, 10%); }
+  &:active        { color: darken(@color, 10%); }
+  &:visited       { color: @color; }
+}
+
 #site-title {
   max-width: @page-width;
-  padding: 2em @content-padding 1.5em;
+  padding: 2em @content-padding 0.2em;
   margin: 0 auto;
   font-weight: 200;
   font-family: @serif;
   font-size: 36pt;
   line-height: 1em;
   text-shadow: 0.05em 0 0 black;
-  a {
-    color: @brand-primary;
-    text-decoration: none;
-    &:hover { color: darken(@brand-primary, 10%); }
-  }
+  text-align: center;
+  a { .primary(@brand-primary); }
 }
 
 #cc {
