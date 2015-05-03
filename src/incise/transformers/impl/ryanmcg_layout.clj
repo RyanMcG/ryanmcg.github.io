@@ -69,11 +69,14 @@
 (defpartial header
   "Add nav to header"
   [{:keys [site-title]} _ _]
-  [:header [:h1#site-title (link-to "/" site-title)]
-   [:ul#main-navigation.navigation
-    [:li (link-to "/bio/" "Bio")]
-    [:li (link-to "/reading/" "Reading")]
-    [:li (link-to "/attributions/" "Attributions")]]
+  [:header
+   [:div.wrapper
+    [:div#logo]
+    [:h1#site-title (link-to "/" site-title)]
+    [:ul#main-navigation.navigation
+     [:li (link-to "/bio/" "Bio")]
+     [:li (link-to "/reading/" "Reading")]
+     [:li (link-to "/attributions/" "Attributions")]]]
    [:div.clearfix]])
 
 (defpartial stylesheets [_ _ [stylesheets]]

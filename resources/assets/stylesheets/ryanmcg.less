@@ -19,16 +19,24 @@ footer {
   padding-top: 2em;
 }
 
+.cover() {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
 header {
   background: radial-gradient(ellipse at 80% 108%, rgba(0,0,0,0.1), rgba(0,0,0,.4)),
               url(/assets/images/cover-1920.jpg) no-repeat 50% 80% fixed;
-  padding-bottom: 4em;
+  .cover();
+  padding-bottom: 0
 }
 
 article > h1:first-child {
   .dark();
   background: radial-gradient(ellipse at 65% 18%, rgba(0,0,0,0.3), rgba(0,0,0,.5)),
               url(/assets/images/cover-1920.jpg) no-repeat 50% 80% fixed;
+  .cover();
   padding-bottom: 1em;
   margin-bottom: 0.5em;
 }
@@ -39,6 +47,29 @@ article > h1:first-child {
     text-align: center;
     a { .mbtn(3px); }
   }
+}
+
+@logo-size: 128px;
+
+header .wrapper {
+  max-width: @page-max-width;
+  padding: 10% 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media (min-width: 2500px) {
+  header .wrapper {
+    padding: 250px 0;
+  }
+}
+
+#logo {
+  background: no-repeat url(/assets/images/vm.svg);
+  background-size: 100% auto;
+  width: @logo-size;
+  height: @logo-size;
+  float: left;
 }
 
 .primary(@color) {
@@ -53,15 +84,13 @@ article > h1:first-child {
 }
 
 #site-title {
-  max-width: @page-width;
-  padding: 2em @content-padding 0.2em;
-  margin: 0 auto;
+  margin: 0 0 0 @logo-size;
+  padding: 14pt 0 0 12pt;
   font-weight: 200;
   font-family: @serif;
   font-size: 36pt;
   line-height: 1em;
   text-shadow: 0.05em 0 0 black;
-  text-align: center;
   a { .primary(@brand-primary); }
 }
 

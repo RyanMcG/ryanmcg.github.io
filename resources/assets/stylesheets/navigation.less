@@ -1,17 +1,13 @@
 .navigation {
-  max-width: @page-width;
-  padding: 0 @content-padding;
-  margin: 0 auto;
+  padding: 0 0 0 12pt;
+  margin: 0 0 0 @logo-size;
   list-style: none;
   font-family: @serif;
   font-size: 1.5em;
   line-height: 1.4em;
-  text-align: center;
   li {
-    margin-left: 1em;
-    &:first-child {
-      margin-left: 0;
-    }
+    margin-right: 1em;
+    &:last-child { margin-left: 0; }
     display: inline-block;
     a { .primary(lighten(@brand-primary, 5%)); }
   }
