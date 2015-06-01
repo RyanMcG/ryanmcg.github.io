@@ -5,6 +5,7 @@
  :stefon {:precompiles ["vm/javascripts/vm.js.stefon"
                         "stylesheets/ryanmcg.css.stefon"]}
  :parse-defaults {:transformers [:ryanmcg-layout :html-header-anchors]}
+ :disqus {:shortname "ryanmcg"}
  :deploy {:workflow :git-branch
           :branch "master"}
  :contacts [[:twitter "Ryan_VM"]
