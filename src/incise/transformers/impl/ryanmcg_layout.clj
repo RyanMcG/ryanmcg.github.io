@@ -3,7 +3,10 @@
                                                  deflayout defpartial]]
                                  [core :refer [register]])
             [incise.transformers.impl.vm-layout :as vm-layout]
+            [incise.transformers.impl.base-layout :as base-layout]
+            [incise.parsers.html :refer [Parse->path]]
             [stefon.core :refer [link-to-asset]]
+            [clojure.string :as s]
             (hiccup [def :refer :all]
                     [element :refer :all])))
 
@@ -48,9 +51,45 @@
                :title "Trust but verify"}
            [:code kcc-btc-addr]]]])
 
+(defn- disqus-setting-var [var-name value]
+  {:pre [(keyword? var-name) (string? value)]}
+  (str "var disqus_" (name var-name) " = '" (s/escape value {\' "\\'"}) "';"))
+
+(defn disqus-script-tag [{:keys [shortname identifier title url] :as settings}]
+  {:pre [(string? shortname)
+         (every? #{:shortname :identifier :title :url}
+                 (keys settings))
+         (every? (some-fn nil? string?) [identifier title url])]}
+  (javascript-tag
+    (str
+      "/* * * CONFIGURATION VARIABLES * * */\n"
+      (->> settings
+           (remove (comp nil? val))
+           (map (partial apply disqus-setting-var))
+           (s/join "\n"))
+      "\n\n/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] ||
+   document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();")))
+
+(defn- show-disqus-comments? [conf parse]
+  (and (map? conf) (conf :shortname) (:date parse)))
+
+(defn- disqus-comments [conf parse]
+  {:pre [((some-fn nil? map?) conf)]}
+  (if (show-disqus-comments? conf parse)
+    (disqus-script-tag {:shortname (conf :shortname)
+                        :title (:title parse)
+                        :identifier (Parse->path parse)})))
+
 (defpartial footer
   "A footer parital with a Creative Commons license attached."
-  [{:keys [contacts author]}]
+  [{:keys [contacts author disqus]} parse]
   [:footer
    [:div.content
     [:div#cc
@@ -64,7 +103,8 @@
     [:div#donate (feeling-generous)]
     [:p#credit "This website was "
      (link-to "https://github.com/RyanMcG/incise" "incised") "."]]
-   (javascript-tag vm-layout/analytics-code)])
+   (javascript-tag vm-layout/analytics-code)
+   (disqus-comments disqus parse)])
 
 (defpartial header
   "Add nav to header"
@@ -82,10 +122,18 @@
 (defpartial stylesheets [_ _ [stylesheets]]
   (conj (pop stylesheets) (link-to-asset "stylesheets/ryanmcg.css.stefon")))
 
+(defpartial content [{:keys [disqus]} parse real-content]
+  (if (show-disqus-comments? disqus parse)
+    (list real-content
+          [:hr]
+          [:div#disqus_thread])
+    real-content))
+
 (deflayout ryanmcg []
   (repartial vm-layout/stylesheets stylesheets)
   (repartial vm-layout/header header)
   (repartial vm-layout/footer footer)
+  (repartial base-layout/content content)
   (use-layout vm-layout/vm))
 
 (register :ryanmcg-layout ryanmcg)
