@@ -2,15 +2,14 @@
 
 # Reading
 
-I thought reading would make me smarter, but really its just a lot of Jim
-Butcher.
+I thought reading would make me smarter, but really it's just a lot of Jim Butcher.
 
 ## 2015
 
 ### Currently Reading
 
-* Great Expectations
-* Side Jobs
+* Fluke
+* Tigana
 
 ### Read
 
@@ -24,6 +23,16 @@ Butcher.
 8.  Princeps' Fury
 9.  First Lord's Fury
 10. The Other Wind
+11. Great Expectations
+12. Side Jobs
+13. The Year of the Flood
+14. MaddAddam
+15. The Way of Kings
+16. Words of Radiance
+17. Do Androids Dream of Electric Sheep?
+18. God Emperor of Dune
+19. Under Heaven
+20. Harry Potter and the Order of the Phoenix
 
 ## 2014
 
@@ -52,15 +61,17 @@ Butcher.
 23. The Magicians
 24. The Hero of Ages
 25. Changes
-25. Physics of the Future
-26. Ghost Story
-27. The Magician King
-28. Cold Days
-29. A Wizard of Earthsea
-30. The Alloy of Law
-31. Programming Erlang: Software for a Concurrent World
-32. The Magician's Land
-33. Skin Game
-34. What If?
+26. Physics of the Future
+27. Ghost Story
+28. The Magician King
+29. Cold Days
+30. A Wizard of Earthsea
+31. The Alloy of Law
+32. Programming Erlang: Software for a Concurrent World
+33. The Magician's Land
+34. Skin Game
+35. What If?
 35. The Slow Regard of Silent Things
-36. The Joy of Clojure (Second Edition)
+37. The Joy of Clojure (Second Edition)
+38. Will Grayson, Will Grayson
+39. Jonathan Strange & Mr Norrell
