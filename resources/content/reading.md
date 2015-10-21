@@ -8,8 +8,9 @@ I thought reading would make me smarter, but really it's just a lot of Jim Butch
 
 ### Currently Reading
 
-* Fluke
 * Tigana
+* The Cinder Spires: the Aeronaut's Windlass
+* An Introduction To Functional Programming Through Lambda Calculus
 
 ### Read
 
@@ -33,6 +34,9 @@ I thought reading would make me smarter, but really it's just a lot of Jim Butch
 18. God Emperor of Dune
 19. Under Heaven
 20. Harry Potter and the Order of the Phoenix
+21. Fluke
+22. Basic Typography
+23. Attack of the Deranged Mutant Killer Monster Snow Goons
 
 ## 2014
 
