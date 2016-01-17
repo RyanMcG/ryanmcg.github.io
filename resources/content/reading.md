@@ -4,15 +4,24 @@
 
 I thought reading would make me smarter, but really it's just a lot of Jim Butcher.
 
-## 2015
+## 2016
 
 ### Currently Reading
 
 * Tigana
-* The Cinder Spires: the Aeronaut's Windlass
+* Thing Explainer
 * An Introduction To Functional Programming Through Lambda Calculus
+* SICP
 
 ### Read
+
+1. Working for Bigfoot
+2. Zealot: The Life and Times of Jesus of Nazareth
+3. Harry Potter and the Goblet of Fire
+4. Flour Water Salt Yeast
+5. Daughter of Orden
+
+## 2015
 
 1.  Warbreaker
 2.  Tehanu
@@ -37,10 +46,16 @@ I thought reading would make me smarter, but really it's just a lot of Jim Butch
 21. Fluke
 22. Basic Typography
 23. Attack of the Deranged Mutant Killer Monster Snow Goons
+24. Lamb
+25. The Fault in Our Stars
+26. The Cinder Spires: the Aeronaut's Windlass
+27. Born to Run
+28. The Blind Assassin
+29. The Telling
 
 ## 2014
 
-1.  Oryx and Crakeub
+1.  Oryx and Crake
 2.  Good Omens
 3.  The Tombs of Atuan
 4.  Rocannon's World
