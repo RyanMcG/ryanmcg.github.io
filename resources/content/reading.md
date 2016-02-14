@@ -8,10 +8,11 @@ I thought reading would make me smarter, but really it's just a lot of Jim Butch
 
 ### Currently Reading
 
-* Tigana
 * Thing Explainer
 * An Introduction To Functional Programming Through Lambda Calculus
 * SICP
+* The God of Small Things
+* The Little Prince
 
 ### Read
 
@@ -20,6 +21,8 @@ I thought reading would make me smarter, but really it's just a lot of Jim Butch
 3. Harry Potter and the Goblet of Fire
 4. Flour Water Salt Yeast
 5. Daughter of Orden
+6. Tigana
+7. No god but God
 
 ## 2015
 
