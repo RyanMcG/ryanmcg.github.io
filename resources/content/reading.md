@@ -11,8 +11,7 @@ I thought reading would make me smarter, but really it's just a lot of Jim Butch
 * Thing Explainer
 * An Introduction To Functional Programming Through Lambda Calculus
 * SICP
-* The God of Small Things
-* The Little Prince
+* Acacia
 
 ### Read
 
@@ -23,6 +22,17 @@ I thought reading would make me smarter, but really it's just a lot of Jim Butch
 5. Daughter of Orden
 6. Tigana
 7. No god but God
+8. The Little Prince
+9. Twenty Thousand Leagues Under the Sea
+10. The Invisible Man
+11. Around the World in Eighty Days
+12. Wild Storm
+13. Charlie and the Chocolate Factory
+14. The Alloy of Law
+15. The Night Circus
+16. The Importance of Being Earnest
+17. The God of Small Things
+18. Snow Crash
 
 ## 2015
 
