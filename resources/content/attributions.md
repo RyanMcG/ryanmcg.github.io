@@ -7,7 +7,7 @@
 
 I'm using the stuff below on/in/around/betwixt this site. They're good
 projects. To the authors, maintainers and other contributors: thanks for
-making your stuff available to schmucks like me.
+making good stuff and occasionally making it available to others too.
 
 ### CSS Framework
 
