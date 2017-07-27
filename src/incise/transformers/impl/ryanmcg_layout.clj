@@ -103,8 +103,7 @@
     [:div#donate (feeling-generous)]
     [:p#credit "This website was "
      (link-to "https://github.com/RyanMcG/incise" "incised") "."]]
-   (javascript-tag vm-layout/analytics-code)
-   (disqus-comments disqus parse)])
+   (javascript-tag vm-layout/analytics-code)])
 
 (defpartial header
   "Add nav to header"

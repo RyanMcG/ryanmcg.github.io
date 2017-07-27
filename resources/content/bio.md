@@ -13,7 +13,7 @@ More professional details about me can be found on [my résumé][resume] and on 
 Most importantly, I live with my best friend Jenny and our dog Sirius.
 Here is a photo of me and Jenny in [Canyonlands National Park](https://www.nps.gov/cany/index.htm).
 
-![Me, Jenny](https://dl.dropboxusercontent.com/u/1378350/canyon-lands-jenny-and-ryan.JPG)
+![Me, Jenny](/assets/images/bio-photo.jpg)
 
 My [twitter][], [github][] and [email][] can be found in the footer of every page on this site.
 
