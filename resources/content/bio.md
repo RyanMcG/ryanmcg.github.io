@@ -21,7 +21,7 @@ My [twitter][], [github][] and [email][] can be found in the footer of every pag
 [Amazon]: http://www.amazon.com/
 [Lyft]: https://www.lyft.com/
 [email]: mailto:ryan@ryanmcg.com
-[resume]: https://dl.dropboxusercontent.com/u/1378350/resume.pdf
+[resume]: https://www.dropbox.com/s/rcnbcuwzylk62kn/resume.pdf?dl=0
 [github]: https://github.com/RyanMcG
 [twitter]: https://twitter.com/Ryan_VM
 [LinkedIn]: https://www.linkedin.com/in/ryanvm/
