@@ -79,7 +79,7 @@ article>h1:first-child a:active{color:#25bff6;}
 #contacts .contact a:active{top:3px;text-shadow:none;}
 header .wrapper{max-width:620px;padding:10% 0;margin:0 auto;overflow:hidden;}
 @media (min-width:2500px){header .wrapper{padding:250px 0;}}#logo{background:no-repeat url(/assets/images/vm.svg);background-size:100% auto;width:128px;height:128px;float:left;}
-#site-title{margin:0 0 0 128px;padding:14pt 0 0 12pt;font-weight:200;font-family:'Raleway',Times,serif;font-size:36pt;line-height:1em;text-shadow:0.05em 0 0 black;}#site-title a{outline:0;color:#b8eafc;text-decoration:none;}#site-title a:hover{color:#87dcfa;}
+#site-title{margin:0 0 0 128px;padding:30pt 0 0 12pt;font-weight:200;font-family:'Raleway',Times,serif;font-size:36pt;line-height:1em;text-shadow:0.05em 0 0 black;}#site-title a{outline:0;color:#b8eafc;text-decoration:none;}#site-title a:hover{color:#87dcfa;}
 #site-title a:hover:active{color:#87dcfa;}
 #site-title a:hover:visited{color:#87dcfa;}
 #site-title a:active{color:#87dcfa;}
