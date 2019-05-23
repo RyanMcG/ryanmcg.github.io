@@ -1,4 +1,4 @@
-{:title "Bio"}
+{:title "Bio" :path "index.html"}
 
 # Bio
 
@@ -7,7 +7,8 @@ I am a graduate of The Ohio State University with a BS in Computer Science & Eng
 After graduating I worked at a startup in Columbus, Ohio called [Facio][].
 I then moved to Seattle and worked at [Amazon][] for a few years.
 
-Now I'm living in the San Francisco Bay Area because it seemed like a good idea at the time. I work with the awesome people at [Lyft][].
+Now I'm living in the San Francisco Bay Area because it seemed like a good idea at the time.
+I work with the awesome people at [Lyft][].
 More professional details about me can be found on [my résumé][resume] and on [LinkedIn][].
 
 Most importantly, I live with my best friend Jenny and our dog Sirius.
