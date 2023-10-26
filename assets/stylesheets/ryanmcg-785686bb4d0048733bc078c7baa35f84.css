@@ -61,7 +61,7 @@ ul.posts{padding:0;margin:2em 0 1em;list-style:none;}ul.posts .post-title,ul.pos
 ul.posts .post-title{font-size:1.2em;margin-bottom:.5em;}
 ul.posts .date{color:#bbbbbb;font-weight:300;}
 @media screen and (min-width:35.5em){ul.posts .post-title{margin:0;} ul.posts .date,ul.posts .post-title{margin-left:0;margin-right:0;} ul.posts .date{text-align:right;padding:.1em 1em 0 0;}}body{background:#080808;background:#080808 no-repeat radial-gradient(circle, #151515, #030303);color:#f2f2f2;text-shadow:0.05em 0.05em 0 #000000;}
-#content{background:#f2f2f2;color:#222222;padding-bottom:1em;}
+#content{background:#f2f2f2;color:#222222;padding-top:1em;padding-bottom:1em;}
 footer h1,header h1,footer h2,header h2,footer h3,header h3,footer h4,header h4,footer h5,header h5,footer h6,header h6{color:#f2f2f2;}
 footer a,header a{color:#3ec6f7;}footer a:hover,header a:hover{color:#6fd4f9;}
 footer a:visited,header a:visited{color:#b899cc;}footer a:visited:hover,header a:visited:hover{color:#ac88c3;}
@@ -87,6 +87,3 @@ header .wrapper{max-width:620px;padding:10% 0;margin:0 auto;overflow:hidden;}
 #cc{zoom:1;}#cc #cc-text{font-size:.8em;}
 #cc:before{content:'';display:block;}
 #cc:after{content:'';display:table;clear:both;}
-#feeling-generous{font-size:.8em;text-align:center;}#feeling-generous p{font-weight:300;}
-#feeling-generous p.or{margin:1em 0;font-size:.75em;font-weight:700;}
-#feeling-generous h6{font-size:1em;font-weight:400;margin-top:0;}
