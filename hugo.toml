@@ -25,33 +25,8 @@ paginate     = 10
   # Metadata mostly used in document's head
   description = "Personal website for ryan@ryanmcg.com"
   keywords = "personal, developer"
-  images = [""]
+  images = ["assets/"]
 
-# [taxonomies]
-#     category = "blog"
-#     tag      = "tags"
-#     series   = "series"
-
-[languages]
-  [languages.en]
-    title = "Hello Friend NG"
-    keywords = ""
-    copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-    readOtherPosts = "Read other posts"
-
-  [languages.en.params]
-    subtitle  = "A simple theme for Hugo"
-
-    [languages.en.params.logo]
-      logoText = "hello friend ng"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
-
-  # And you can even create generic menu
-  # [[menu.main]]
-  #   identifier = "blog"
-  #   name       = "Blog"
-  #   url        = "/posts"
+[[params.social]]
+  name = "github"
+  url = "https://github.com/RyanMcG"
